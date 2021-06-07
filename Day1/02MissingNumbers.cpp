@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 #define int long long int
 #define ld long double
 #define F first
@@ -8,14 +9,24 @@ using namespace std;
 #define pb push_back
 const int mod = 1e9 + 7;
 const int N = 100005, M=22;
+
 void solve(){
     int i,j,k,n,m,ans=0,cnt=0,sum=0;
-        cin>>i;
-        cout<<i<<" ";
-        while(i!=1)
+       cin>>n;
+       int ar[n];
+       for(int i=0;i<n-1;i++)cin>>ar[i];
+        ar[n-1]=INT_MAX;
+
+        for(int i=0;i<n;i++)
         {
-        if(i&1){i=i*3+1;cout<<i<<" ";}
-        else {i=i/2;cout<<i<<" ";}
+            if(abs(ar[i])!=INT_MAX)
+            {
+                ar[abs(ar[i]) - 1] *= -1;
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(ar[i]>0)cout<<i+1;
         }
 }
 void init() {
@@ -29,9 +40,9 @@ void init() {
 int32_t main(){
     init();
         {
-            //int t;
-            //cin>>t;
-            //while(t--)
+            // int t;
+            // cin>>t;
+            // while(t--)
             solve();
         }
     }

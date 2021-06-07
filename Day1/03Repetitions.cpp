@@ -9,14 +9,19 @@ using namespace std;
 const int mod = 1e9 + 7;
 const int N = 100005, M=22;
 void solve(){
-    int i,j,k,n,m,ans=0,cnt=0,sum=0;
-        cin>>i;
-        cout<<i<<" ";
-        while(i!=1)
+    int i,j,k,n,m,ans=0,cnt=1,sum=0;
+        string s;
+        cin>>s;
+        for(int i=0;s[i];i++)
         {
-        if(i&1){i=i*3+1;cout<<i<<" ";}
-        else {i=i/2;cout<<i<<" ";}
+            if(i!=s.size()-1 && s[i]==s[i+1])
+            {
+                cnt++;
+                ans=max(ans,cnt);
+            }
+            else cnt=1;
         }
+        cout<<(ans>1?ans:1);
 }
 void init() {
     ios_base:: sync_with_stdio(false);
@@ -29,9 +34,9 @@ void init() {
 int32_t main(){
     init();
         {
-            //int t;
-            //cin>>t;
-            //while(t--)
+            // int t;
+            // cin>>t;
+            // while(t--)
             solve();
         }
     }
