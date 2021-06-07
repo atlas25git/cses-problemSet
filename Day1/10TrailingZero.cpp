@@ -8,14 +8,12 @@ using namespace std;
 #define pb push_back
 const int mod = 1e9 + 7;
 const int N = 100005, M=22;
-
 void solve(){
-
     int i,j,k,n,m,ans=0,cnt=0,sum=0;
         cin>>n;
-        if(n&(n+1)/2)
+        for(i=5;i<=n;i*=5)ans+=n/i;
+       cout<<ans;
 }
-
 void init() {
     ios_base:: sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
@@ -32,4 +30,4 @@ int32_t main(){
             // while(t--)
             solve();
         }
-    }
+    }       

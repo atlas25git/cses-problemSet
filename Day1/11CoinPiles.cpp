@@ -8,14 +8,11 @@ using namespace std;
 #define pb push_back
 const int mod = 1e9 + 7;
 const int N = 100005, M=22;
-
 void solve(){
-
     int i,j,k,n,m,ans=0,cnt=0,sum=0;
-        cin>>n;
-        if(n&(n+1)/2)
+        cin>>i>>j;
+        cout<<((i+j)%3==0&&2*i>=j&&2*j>=i?"YES":"NO")<<"\n";
 }
-
 void init() {
     ios_base:: sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
@@ -27,9 +24,9 @@ void init() {
 int32_t main(){
     init();
         {
-            // int t;
-            // cin>>t;
-            // while(t--)
+            int t;
+            cin>>t;
+            while(t--)
             solve();
         }
     }

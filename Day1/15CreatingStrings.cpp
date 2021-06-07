@@ -8,14 +8,19 @@ using namespace std;
 #define pb push_back
 const int mod = 1e9 + 7;
 const int N = 100005, M=22;
-
 void solve(){
-
-    int i,j,k,n,m,ans=0,cnt=0,sum=0;
-        cin>>n;
-        if(n&(n+1)/2)
+    int i,j,k,n,m,ans1=0,cnt=0,sum=0;
+        string s;
+        cin>>s;
+        sort(s.begin(),s.end());
+        vector<string> ans;
+        do{
+            ans.pb(s);
+        }while(next_permutation(s.begin(),s.end()));
+        cout<<ans.size()<<"\n";
+        for(string a: ans)
+            cout<<a<<"\n";
 }
-
 void init() {
     ios_base:: sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);

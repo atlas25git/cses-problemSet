@@ -8,12 +8,31 @@ using namespace std;
 #define pb push_back
 const int mod = 1e9 + 7;
 const int N = 100005, M=22;
-
 void solve(){
-
     int i,j,k,n,m,ans=0,cnt=0,sum=0;
-        cin>>n;
-        if(n&(n+1)/2)
+        string s;
+        cin>>s;
+        int c[26]={},c1=0;
+        for(char d:s)
+        ++c[d-'A'];
+        for(int i=0;i<26;++i)
+            c1+=c[i]&1;
+        
+        if(c1>1){
+            cout<<"NO SOLUTION";return ;
+        }
+        string t;
+        for(int i=0;i<26;i++)
+            if(c[i]&1^1)
+                for(int j=0;j<c[i]/2;j++)
+                t+=(char)('A'+i);
+        cout<<t;
+        for(int i=0;i<26;i++)
+            if(c[i]&1)
+                for(int j=0;j<c[i];++j)
+                    t+=(char)('A'+i);
+        reverse(t.begin(),t.end());
+        cout<<t;
 }
 
 void init() {
