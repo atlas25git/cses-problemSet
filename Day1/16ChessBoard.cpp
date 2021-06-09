@@ -12,15 +12,31 @@ void solve(){
     int i,j,k,n,m,ans=0,cnt=0,sum=0;
         string s[8];
         for(int i=0;i<8;i++)cin>>s[i];
-        int p[8];
+        int p[8];bool b[15];
         iota(p,p+8,0);
         do{
             bool ok=1;
-            for(int i=0;i<8;i++)
-                ok&=s[i][p[i]]=='_';
+            for(i=0;i<8;i++)
+            //we've stored input in a strings array
+                ok&=s[i][p[i]]=='.';
+            memset(b,0,15);
+            for(i=0;i<8;i++)
+            {
+                if(b[i+p[i]])
+                    ok=0;
+                b[i+p[i]]=1;
+            }
+            memset(b,0,15);
+            for(i=0;i<8;i++)
+            {
+                if(b[i+7-p[i]])
+                    ok=0;
+                b[i+7-p[i]]=1;
+            }
+            ans+=ok;
         }while(next_permutation(p,p+8));
-        cout<<ans;
-}
+        cout<<ans;        
+    }
 void init() {
     ios_base:: sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
@@ -32,9 +48,9 @@ void init() {
 int32_t main(){
     init();
         {
-            int t;
-            cin>>t;
-            while(t--)
+            // int t;
+            // cin>>t;
+            // while(t--)
             solve();
         }
     }

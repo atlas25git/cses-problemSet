@@ -1,3 +1,4 @@
-int t;
-            // cin>>t;
-            // while(t--)
+ // #ifndef ONLINE_JUDGE
+    //     freopen("input.txt","r",stdin);
+    //     freopen("output.txt","w",stdout);
+    // #endif
