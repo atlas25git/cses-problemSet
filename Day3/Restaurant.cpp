@@ -8,24 +8,33 @@ using namespace std;
 #define pb push_back
 const int mod = 1e9 + 7;
 const int N = 100005, M=22;
+
+// bool sortbycol(vector<int>& v1,vector<int>& v2)
+// {
+//     return v1[1]<v2[1];
+// }
+
 void solve(){
-    //cout<<"solve\n";
     int i,j,k,n,m,ans=0,cnt=0,sum=0;
-        
-        cin>>n;
-        set<array<int,2>> s;
-        for(i=0;i<n;i++)
+    cin>>n;
+    vector<vector<int>> v(n,vector<int>(2,0));
+    for(int i=0;i<n;i++)
+        cin>>v[i][1]>>v[i][0];
+
+    sort(v.begin(),v.end());
+    //for(auto x: v)cout<<x[0]<<" "<<x[1]<<"\n";
+    m=0;
+    for(auto w:v)
+    {
+        if(w[1]>=m)
         {
-            cin>>j>>k;
-            s.insert({2*j,1});
-            s.insert({2*k+1,-1});
+            ans++;
+            m=w[0];
         }
-        for(array<int,2> a:s)
-        {
-            cnt+=a[1];
-            ans=max(cnt,ans);
-        }
+
+    }
     cout<<ans;
+        
 }
 void init() {
     ios_base:: sync_with_stdio(false);
@@ -38,7 +47,6 @@ void init() {
 int32_t main(){
     init();
         {
-            //cout<<"init\n";
             // int t;
             // cin>>t;
             // while(t--)
